@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["SiteName"] = "The Joel Hilton Film Collection";
+    ViewData["PageName"] = "Movie Database";
+}
+
+@* Bring in model that will be used *@
+@model IEnumerable<Assignment_3.Models.EnterNewMovieResponse>
+
+@* Create a table that will hold all the movies the user has entered into the database *@
+<div>
+    <h2>Here are the movies in the database</h2>
+
+    <table>
+        @* Create the header row *@
+        <thead>
+            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>LentTo</th><th>Notes</th>
+        </thead>
+
+        @* Print out all the movies that have been saved to a list of objects *@
+        <tbody>
+            @foreach (Assignment_3.Models.EnterNewMovieResponse x in Model)
+            {
+                //do not print "Independence Day" or any common variation if it shows up in our list
+                if (x.Title == "Independence Day" || x.Title == "independence day" || x.Title == "Independence day" || x.Title == "independence Day")
+                { }
+                else
+                {
+                    <tr>
+                        <td>@x.Category</td>
+                        <td>@x.Title</td>
+                        <td>@x.Year</td>
+                        <td>@x.Director</td>
+                        <td>@x.Rating</td>
+                        <td>@x.Edited</td>
+                        <td>@x.LentTo</td>
+                        <td>@x.Notes</td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+</div>
