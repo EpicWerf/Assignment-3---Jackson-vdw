@@ -20,7 +20,7 @@ namespace Assignment_3.Models
         public string Director { get; set; }
         [Required]
         public string Rating { get; set; }
-        public string Edited { get; set; }
+        public bool? Edited { get; set; }
         public string LentTo { get; set; }
         [MaxLength(25, ErrorMessage = "Please limit notes to 25 characters or less")]
         public string Notes { get; set; }
